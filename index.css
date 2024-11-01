@@ -1,0 +1,301 @@
+html, body{
+    background: linear-gradient(45deg, purple, black);
+    
+    
+}
+html{
+    scroll-behavior: smooth;
+}
+header{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 80px;
+}
+.menu{
+    display: flex;
+    margin-top: 70px;
+    gap: 2rem;
+    opacity: 0; /* Start hidden */
+    transform: translateY(20px); /* Start with a slight offset */
+    transition: opacity 1s ease, transform 0.6s ease;
+}
+a{
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+}
+
+.logo1{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-top: 20px;
+    opacity: 0; /* Start hidden */
+    transform: translateY(20px); /* Start with a slight offset */
+    transition: opacity 1s ease, transform 0.6s ease;
+}
+.intro{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    
+}
+.mee{
+    height: 550px;
+    border-radius: 50px;
+    border: 5px solid white;
+    box-shadow: 9px -1px 28px -7px;
+    flex-grow: 1;
+    flex-basis: 200;
+    opacity: 10%; /* Start hidden */
+    transform: translateY(20px); /* Start with a slight offset */
+    transition: opacity 1s ease, transform 0.6s ease;
+}
+.aboutMe{
+    width: 35%;
+}
+.aboutMeText{
+    margin-top: 150px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 30px;
+    font-weight: 300;
+    flex-grow: 1;
+    flex-basis: 200;
+    color: white;
+    opacity: 0; /* Start hidden */
+    transform: translateY(20px); /* Start with a slight offset */
+    transition: opacity 1s ease, transform 0.6s ease;
+}
+.highlight1{
+    color: rgb(2, 27, 185);
+    font-weight:bold;
+}
+.highlight2{
+    color: yellow;
+    font-weight: bold;
+}
+
+.highlight3{
+    font-weight: bold;
+}
+.skills {
+   display: flex;
+   justify-content: center;
+   gap: 2rem;
+   width: 100%;
+   
+}
+.skills_intro{
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+}
+.skills_intro_title{
+    font-family: "Montserrat", sans-serif;
+    color: white;
+    font-weight: 300;
+}
+.skills_section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 100px;
+}
+.skills_section_container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center content initially */
+    background-color:grey;
+    border-radius: 40px;
+    margin-top: 2rem;
+    width: 550px;
+    height: 700px;
+    opacity: 0; /* Start hidden */
+    transform: translateY(20px); /* Start with a slight offset */
+    transition: opacity 1s ease, transform 0.6s ease, box-shadow 0.5s ease;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+.grid-item.active {
+    justify-content: flex-start; /* Align content to the top when active */
+}
+/* Expanded state for info-content */
+.grid-item.active .info-content {
+    max-height: 200px; /* Adjust as needed */
+    opacity: 1;
+}
+.grid-item.active .skill_logo {
+    transform: translateY(55px); /* Adjust this value as needed */
+    margin-top: 30px;
+}
+.grid-item.active .skill_title {
+    opacity: 0; /* Hide the title when active */
+}
+.skill_title {
+    font-size: 2rem;
+    color: black;
+    margin-top: 1rem;
+    transition: opacity 0.3s ease;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+}
+.info-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 20px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    font-family: "Montserrat", sans-serif;
+}
+.info-button .text {
+    display: inline-block;
+    transition: opacity 0.9s ease-in-out;
+}
+.info-button.fade-out .text {
+    opacity: 0;
+}
+.info-button:hover {
+    background-color: #555;
+    cursor: pointer;
+}
+
+.info-content {
+    max-height: 0; /* Start collapsed */
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+    font-size: 1rem;
+    color: black;
+    margin-top: 1rem;
+    text-align: center;
+}
+.info-content p{
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+}
+/* Expanded state for info-content */
+.grid-item.active .info-content {
+    max-height: 100%; /* Adjust as needed */
+    opacity: 1;
+}
+.grid-item:hover {
+    box-shadow: 10px 10px 20px 20px rgba(0, 0, 0, 0.5); /* Slight box shadow on hover */
+  
+}
+.skill_logo {
+    height: 150px;
+    width: 150px;
+    margin-bottom: 10px;
+    transition: transform 0.5s ease, margin-top 0.5s ease;
+}
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.mentions{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 150px;
+    width: 100%;
+}
+.mentions_title{
+    color: white;
+    font-family: "Montserrat", sans-serif;
+}
+.mentions_captions{
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    width: 30%;
+    font-size:25px ;
+    text-align: center;
+}
+.mentions_credentials{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.mentions_credentials_container{
+    
+    display: flex;
+    
+    justify-content: center;
+}
+.company_logo_img1{
+    height: 100px;
+    margin-top: 40px;
+    
+}
+.company_logo_img2{
+    height: 80px;
+    margin-top: 50px;
+    
+}
+.company_logo_img3{
+    height: 100px;
+    margin-top: 45px;
+}
+.company_logo_img4{
+    height: 100px;
+    margin-top: 45px;
+}
+.company_logo_img5{
+    height: 50px;
+    margin-top: 75px;
+}
+.company_logo_img6{
+    height: 100px;
+    margin-top: 45px;
+}
+.company_logo_img7{
+    height: 100px;
+    margin-top: 45px;
+}
+.company_logo_img8{
+    height: 200px;
+    
+}
+.company_logo_img9{
+    height: 100px;
+    margin-top: 45px;
+}
+.company_logo{
+    display: flex;
+    border: solid 1px black;
+    object-fit: contain;
+    justify-content: center;
+    border-radius: 20px;
+    background-color: white;
+ 
+}
+.company_logos_container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    grid-template-rows: repeat(3, 1fr); /* 3 equal rows */
+    gap: 10px; /* Space between grid items */
+    width: 90vw; /* Responsive width */
+    height: 90vh; /* Responsive height */
+    max-width: 600px; /* Maximum width */
+    max-height: 600px; /* Maximum height */
+    
+}
+.company_logos_container_container{
+    display: flex
+    ;
+    justify-content: center;
+   
+}
