@@ -1,7 +1,7 @@
 html, body{
     background: linear-gradient(45deg, purple, black);
     position: relative;
-    
+    padding: 0;
 
 }
 html{
@@ -103,46 +103,56 @@ a{
     color: white;
     font-weight: 300;
 }
-.skills_section{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 00px;
-}
-.skills_section_container{
+.skills_section_container {
     display: flex;
     justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    padding: 2rem;
     width: 100%;
+}
+#skills{
+    margin-top: 100px;
 }
 .grid-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* Center content initially */
-    background-color:grey;
+    justify-content: center;
+    background-color: grey;
     border-radius: 40px;
     margin-top: 2rem;
-    width: 550px;
-    height: 700px;
+    width: 25%;
     opacity: 0; /* Start hidden */
     transform: translateY(20px); /* Start with a slight offset */
-    transition: opacity 1s ease, transform 0.6s ease, box-shadow 0.5s ease;
+    transition: opacity 1s ease, transform 0.6s ease, box-shadow 1s ease;
     padding: 20px;
     position: relative;
     overflow: hidden;
 }
-.grid-item.active {
-    justify-content: flex-start; /* Align content to the top when active */
-}
 /* Expanded state for info-content */
+.grid-item .info-content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.6s ease, opacity 0.6s ease;
+    text-align: center;
+}
 .grid-item.active .info-content {
-    max-height: 200px; /* Adjust as needed */
+    max-height: 500px; /* Set a large enough max-height */
     opacity: 1;
 }
 .grid-item.active .skill_logo {
     transform: translateY(55px); /* Adjust this value as needed */
     margin-top: 30px;
 }
+.skill_logo {
+    height: 150px;
+    width: 150px;
+    margin-bottom: 10px;
+    transition: transform 0.5s ease, margin-top 0.5s ease;
+}
+
 .grid-item.active .skill_title {
     opacity: 0; /* Hide the title when active */
 }
@@ -153,6 +163,9 @@ a{
     transition: opacity 0.3s ease;
     font-family: "Montserrat", sans-serif;
     font-weight: 300;
+}
+.skill_title, .info-button {
+    opacity: 1;
 }
 .info-button {
     margin-top: 20px;
@@ -190,6 +203,7 @@ a{
     color: black;
     margin-top: 1rem;
     text-align: center;
+    font-size: 2px;
 }
 .info-content p{
     font-family: "Montserrat", sans-serif;
@@ -201,8 +215,8 @@ a{
     opacity: 1;
 }
 .grid-item:hover {
-    box-shadow: 10px 10px 20px 20px rgba(0, 0, 0, 0.5); /* Slight box shadow on hover */
-  
+    background-color: #525252;/* Slight box shadow on hover */
+    transition: background-color 0.2s ease-in-out;
 }
 .skill_logo {
     height: 150px;
@@ -315,19 +329,22 @@ a{
 
 /* Style for About Me and Projects sections */
 #aboutMeSection {
-    opacity: 0; /* Fully visible */
-    visibility: visible; /* Show element */
-    transition: opacity 0.5s ease, visibility 0.5s ease; /* Fade effect */
+    max-height: 0; /* Start collapsed */
+    opacity: 0; /* Start hidden */
+    visibility: hidden; /* Hidden initially */
+    overflow: hidden; /* Hide overflowing content */
+    transition: max-height 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
     border: 1px solid black;
-    padding: 20px; /* Increased padding for better spacing */
+    padding: 0 20px; /* Initial padding top/bottom set to 0 */
     margin-top: 100px;
-    background-color:black; /* Light background color */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    border-radius: 40px; /* Rounded corners */
+    background-color: black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
+
 .aboutMeSectionText p{
     color: white;
     width: 100%;
@@ -340,13 +357,16 @@ a{
     display: flex;
     justify-content: center;
     font-family: "Montserrat", sans-serif;
+    margin-top: 20px;
 }
 .aboutMeSectionText{
     width: 50%;
+    margin-top: 50px;
 }
 .imageAboutMe img{
     height: 500px;
     border-radius: 40px;
+    margin-bottom: 100px;
 }
 
 .aboutMeSectionContent{
@@ -373,41 +393,15 @@ a{
    
 }
 
-.get_to_know_me_button:hover,
-.view_my_projects_button:hover {
+.get_to_know_me_button:hover {
     background-color: #555; /* Change color on hover */
 }
 
-.get_to_know_me_button:active,
-.view_my_projects_button:active {
+.get_to_know_me_button:active {
     transform: scale(0.95); /* Scale down the button when clicked */
 }
-#projectsSection {
-    opacity: 0; /* Fully visible */
-    visibility: hidden; /* Hide initially */
-    transition: opacity 0.5s ease, visibility 0.5s ease; /* Fade effect */
-    border: 1px solid black;
-    padding: 20px; /* Increased padding for better spacing */
-    margin-top: 100px;
-    background-color: black; /* Light background color */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    border-radius: 40px; /* Rounded corners */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.projectsSectionTitle {
-    color: white;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    font-family: "Montserrat", sans-serif;
-}
-.projectsSectionContent {
-    color: white; /* Text color */
-    font-size: 20px; /* Adjust font size */
-    font-family: "Montserrat", sans-serif; /* Font family */
-}
+
+
 /* Call to action section style */
 .call_to_action {
     display: flex;
