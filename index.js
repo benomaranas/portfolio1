@@ -19,61 +19,59 @@ function initScrollAnimation() {
 
 // Run the function after the DOM has loaded
 document.addEventListener("DOMContentLoaded", initScrollAnimation);
-function toggleInfo() {
-    document.querySelectorAll('.info-button').forEach(button => {
+function toggleCardInfo() {
+    document.querySelectorAll('.skills_section_container .grid-item .info-button').forEach(button => {
         button.addEventListener('click', () => {
             const card = button.closest('.grid-item');
+            
+            // Close all other cards' info-content sections
+            document.querySelectorAll('.skills_section_container .grid-item').forEach(item => {
+                if (item !== card) {
+                    item.classList.remove('active');
+                    item.querySelector('.info-button').textContent = "More Info";
+                }
+            });
+            
+            // Toggle the clicked card's info-content section
             card.classList.toggle('active');
-            // Toggle button text
-            if (card.classList.contains('active')) {
-                button.textContent = "Hide Info";
-            } else {
-                button.textContent = "More Info";
-            }
+            button.textContent = card.classList.contains('active') ? "Hide Info" : "More Info";
         });
     });
 }
-// script.js
-// script.js
-// script.js
-// script.js
-function toggleSection(currentButtonClass, sectionToShowId, sectionToHideId) {
-    const sectionToShow = document.getElementById(sectionToShowId);
-    const sectionToHide = document.getElementById(sectionToHideId);
 
-    // Check if the section to show is already visible
-    if (sectionToShow.classList.contains('hidden')) {
-        // Hide the currently visible section (if any)
-        if (sectionToHide) {
-            sectionToHide.style.opacity = '0'; // Start fade-out effect
-            setTimeout(() => {
-                sectionToHide.classList.add('hidden'); // Add hidden class after fade-out
-            }, 500); // Match this duration with the CSS transition
-        }
+document.addEventListener("DOMContentLoaded", toggleCardInfo);
 
-        // Show the section
-        sectionToShow.classList.remove('hidden'); // Make visible
-        sectionToShow.style.opacity = '1'; // Set opacity for fade-in
+document.addEventListener("DOMContentLoaded", toggleCardInfo);
+
+// script.js
+// script.js
+// script.js
+// script.js
+function toggleAboutSection() {
+    const aboutSection = document.getElementById('aboutMeSection');
+
+    if (aboutSection.classList.contains('hidden')) {
+        aboutSection.classList.remove('hidden');
+        aboutSection.style.maxHeight = '1000px'; // Large enough to fully expand content
+        aboutSection.style.opacity = '1';
+        aboutSection.style.visibility = 'visible';
     } else {
-        // If already visible, just toggle to hide it (optional)
-        sectionToShow.style.opacity = '0'; // Start fade-out effect
+        aboutSection.style.maxHeight = '0';
+        aboutSection.style.opacity = '0';
+        aboutSection.style.visibility = 'hidden';
         setTimeout(() => {
-            sectionToShow.classList.add('hidden'); // Add hidden class after fade-out
-        }, 500); // Match this duration with the CSS transition
+            aboutSection.classList.add('hidden');
+        }, 500); // Match with transition duration
     }
 }
 
-// Event listeners for the buttons
-document.querySelector('.get_to_know_me_button').addEventListener('click', function() {
-    toggleSection('get_to_know_me_button', 'aboutMeSection', 'projectsSection');
-});
+// Event listener for "Get to know me" button
+document.querySelector('.get_to_know_me_button').addEventListener('click', toggleAboutSection);
 
-document.querySelector('.view_my_projects_button').addEventListener('click', function() {
-    toggleSection('view_my_projects_button', 'projectsSection', 'aboutMeSection');
-});
 
 
 
 // Call the function to activate the toggle functionality
 toggleInfo();
 toggleSection();
+toggleCardInfo();
