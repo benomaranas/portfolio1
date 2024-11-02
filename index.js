@@ -33,6 +33,47 @@ function toggleInfo() {
         });
     });
 }
+// script.js
+// script.js
+// script.js
+// script.js
+function toggleSection(currentButtonClass, sectionToShowId, sectionToHideId) {
+    const sectionToShow = document.getElementById(sectionToShowId);
+    const sectionToHide = document.getElementById(sectionToHideId);
+
+    // Check if the section to show is already visible
+    if (sectionToShow.classList.contains('hidden')) {
+        // Hide the currently visible section (if any)
+        if (sectionToHide) {
+            sectionToHide.style.opacity = '0'; // Start fade-out effect
+            setTimeout(() => {
+                sectionToHide.classList.add('hidden'); // Add hidden class after fade-out
+            }, 500); // Match this duration with the CSS transition
+        }
+
+        // Show the section
+        sectionToShow.classList.remove('hidden'); // Make visible
+        sectionToShow.style.opacity = '1'; // Set opacity for fade-in
+    } else {
+        // If already visible, just toggle to hide it (optional)
+        sectionToShow.style.opacity = '0'; // Start fade-out effect
+        setTimeout(() => {
+            sectionToShow.classList.add('hidden'); // Add hidden class after fade-out
+        }, 500); // Match this duration with the CSS transition
+    }
+}
+
+// Event listeners for the buttons
+document.querySelector('.get_to_know_me_button').addEventListener('click', function() {
+    toggleSection('get_to_know_me_button', 'aboutMeSection', 'projectsSection');
+});
+
+document.querySelector('.view_my_projects_button').addEventListener('click', function() {
+    toggleSection('view_my_projects_button', 'projectsSection', 'aboutMeSection');
+});
+
+
 
 // Call the function to activate the toggle functionality
 toggleInfo();
+toggleSection();
